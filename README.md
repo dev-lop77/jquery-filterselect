@@ -36,10 +36,11 @@ $('#mySelector').filterSelect({
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `data` | Array | `[]` | Tree data with groups and children |
+| `data` | Array/String | `[]` | Tree data array, or a URL string to load JSON via AJAX GET |
 | `leftTitle` | String | `'Available'` | Left panel title |
 | `rightTitle` | String | `'Selected'` | Right panel title |
 | `maxSelected` | Number/null | `null` | Max items in the right list. `null` = unlimited |
+| `ajaxParams` | Object | `{}` | Query string parameters appended to the URL when `data` is a string |
 
 ## Data format
 
@@ -70,6 +71,24 @@ $('#mySelector').filterSelect({
 - Select All / Deselect All per panel
 - Status bar with checked/total counts
 - Configurable max selected items with warning state
+- Load data from URL via AJAX GET with optional query parameters
+- Public API: `getSelectedData()` and `getSelectedIds()` methods
+
+## API Methods
+
+Call methods on an initialized instance using the jQuery plugin pattern:
+
+```js
+// Get all right-list items as objects
+var data = $('#mySelector').filterSelect('getSelectedData');
+// [{ id: "banana", label: "Banana", group: "Fruits", selected: true, disabled: false }, ...]
+
+// Get all right-list item IDs as a flat array
+var ids = $('#mySelector').filterSelect('getSelectedIds');
+// ["banana", "broccoli", "milk"]
+```
+
+Both methods return all items in the right list regardless of checkbox state.
 
 ## CSS classes
 

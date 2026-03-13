@@ -137,8 +137,15 @@
   </style>
 </head>
 <body>
-  <h1>FilterSelect Demo <small style="font-size:14px;color:#999;">v1.3.1</small></h1>
+  <h1>FilterSelect Demo <small style="font-size:14px;color:#999;">v1.5.1</small></h1>
   <div id="mySelector"></div>
+  <div style="margin-top:10px;">
+    <button id="saveBtn" style="padding:6px 16px; font-size:13px; cursor:pointer;">Save</button>
+  </div>
+  <pre id="debug" style="margin-top:8px; padding:10px; background:#fff; border:1px solid #ddd; border-radius:4px; max-width:700px; font-size:12px; color:#555; min-height:24px;"></pre>
+
+  <h2 style="margin-top:30px; margin-bottom:15px; color:#333;">Italian Alps <small style="font-size:13px;color:#999;">(loaded from JSON file)</small></h2>
+  <div id="mountainSelector"></div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="../dist/filterselect.min.js"></script>
@@ -176,6 +183,19 @@
       leftTitle: 'Available Items',
       rightTitle: 'Selected Items',
       maxSelected: 5
+    });
+
+    // Save button: read selected IDs and display in debug area
+    $('#saveBtn').on('click', function() {
+      var ids = $('#mySelector').filterSelect('getSelectedIds');
+      $('#debug').text(JSON.stringify(ids, null, 2));
+    });
+
+    // URL-based usage: Italian Alps mountains loaded from local JSON
+    $('#mountainSelector').filterSelect({
+      data: 'mountains.json',
+      leftTitle: 'Available Peaks',
+      rightTitle: 'Selected Peaks'
     });
   </script>
 </body>

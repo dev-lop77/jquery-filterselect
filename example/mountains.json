@@ -1,0 +1,48 @@
+[
+  {
+    "group": "Dolomiti",
+    "children": [
+      { "id": "marmolada", "label": "Marmolada (3.343 m)", "selected": false, "disabled": false },
+      { "id": "tofana", "label": "Tofana di Rozes (3.225 m)", "selected": false, "disabled": false },
+      { "id": "civetta", "label": "Civetta (3.220 m)", "selected": false, "disabled": false },
+      { "id": "pelmo", "label": "Pelmo (3.168 m)", "selected": false, "disabled": false },
+      { "id": "tre_cime", "label": "Tre Cime di Lavaredo (2.999 m)", "selected": true, "disabled": false },
+      { "id": "sassolungo", "label": "Sassolungo (3.181 m)", "selected": false, "disabled": false }
+    ]
+  },
+  {
+    "group": "Monte Bianco",
+    "children": [
+      { "id": "monte_bianco", "label": "Monte Bianco (4.808 m)", "selected": true, "disabled": false },
+      { "id": "dente_gigante", "label": "Dente del Gigante (4.013 m)", "selected": false, "disabled": false },
+      { "id": "grandes_jorasses", "label": "Grandes Jorasses (4.208 m)", "selected": false, "disabled": false },
+      { "id": "aiguille_noire", "label": "Aiguille Noire de Peuterey (3.773 m)", "selected": false, "disabled": true }
+    ]
+  },
+  {
+    "group": "Monte Rosa",
+    "children": [
+      { "id": "punta_dufour", "label": "Punta Dufour (4.634 m)", "selected": false, "disabled": false },
+      { "id": "punta_gnifetti", "label": "Punta Gnifetti (4.554 m)", "selected": false, "disabled": false },
+      { "id": "lyskamm", "label": "Lyskamm (4.527 m)", "selected": true, "disabled": false },
+      { "id": "castore", "label": "Castore (4.228 m)", "selected": false, "disabled": false }
+    ]
+  },
+  {
+    "group": "Ortles-Cevedale",
+    "children": [
+      { "id": "ortles", "label": "Ortles (3.905 m)", "selected": false, "disabled": false },
+      { "id": "cevedale", "label": "Cevedale (3.769 m)", "selected": false, "disabled": false },
+      { "id": "gran_zebru", "label": "Gran Zebrù (3.857 m)", "selected": false, "disabled": false },
+      { "id": "vioz", "label": "Punta di San Matteo (3.678 m)", "selected": false, "disabled": true }
+    ]
+  },
+  {
+    "group": "Gran Paradiso",
+    "children": [
+      { "id": "gran_paradiso", "label": "Gran Paradiso (4.061 m)", "selected": false, "disabled": false },
+      { "id": "herbetet", "label": "Herbetet (3.778 m)", "selected": false, "disabled": false },
+      { "id": "ciarforon", "label": "Ciarforon (3.642 m)", "selected": false, "disabled": false }
+    ]
+  }
+]

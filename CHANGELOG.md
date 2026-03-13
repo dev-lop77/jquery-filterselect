@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.5.1
+
+- Fix: `getSelectedIds()` now correctly returns item IDs instead of labels
+
+## 1.5.0
+
+- Public API method `getSelectedData()` returns array of item objects from the right list
+- Public API method `getSelectedIds()` returns flat array of IDs from the right list
+- Both methods return all right-list items regardless of checkbox state
+- jQuery plugin method call pattern: `$('#el').filterSelect('methodName')`
+- Example: Save button with debug area showing selected IDs
+
+## 1.4.0
+
+- `data` option accepts a URL string to load JSON data via AJAX GET
+- New `ajaxParams` option for appending query string parameters to the AJAX request
+- On AJAX failure, logs a warning to console and renders empty lists
+- Array-based `data` continues to work unchanged
+
 ## 1.3.1
 
 - Fix: right status bar format changed to `checked / total [max: N]`

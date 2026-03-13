@@ -1,13 +1,21 @@
-// FilterSelect v1.3.1
+// FilterSelect v1.5.1
 (function($) {
   'use strict';
 
   $.fn.filterSelect = function(options) {
+    // Method calls on existing instance
+    if (typeof options === 'string') {
+      var instance = this.first().data('filterSelect');
+      if (!instance || typeof instance[options] !== 'function') return this;
+      return instance[options]();
+    }
+
     var defaults = {
       data: [],
       leftTitle: 'Available',
       rightTitle: 'Selected',
-      maxSelected: null
+      maxSelected: null,
+      ajaxParams: {}
     };
     var opts = $.extend({}, defaults, options);
 
@@ -15,6 +23,28 @@
       var $container = $(this);
       $container.addClass('fs-container');
 
+      if (typeof opts.data === 'string') {
+        var url = opts.data;
+        $.ajax({
+          url: url,
+          type: 'GET',
+          data: opts.ajaxParams,
+          dataType: 'json'
+        }).done(function(data) {
+          opts.data = data;
+          initPlugin($container, opts);
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+          console.warn('FilterSelect: failed to load data from ' + url + ' (' + textStatus + ')');
+          opts.data = [];
+          initPlugin($container, opts);
+        });
+      } else {
+        initPlugin($container, opts);
+      }
+    });
+  };
+
+  function initPlugin($container, opts) {
       // Build internal data map
       var itemsMap = {};
       $.each(opts.data, function(_, group) {
@@ -302,7 +332,26 @@
           $group.toggle(visibleCount > 0);
         });
       });
-    });
-  };
+
+      // Public API
+      $container.data('filterSelect', {
+        getSelectedData: function() {
+          var result = [];
+          $.each(itemsMap, function(id, item) {
+            if (item.selected) {
+              result.push({ id: item.id, label: item.label, group: item.group, selected: item.selected, disabled: item.disabled });
+            }
+          });
+          return result;
+        },
+        getSelectedIds: function() {
+          var result = [];
+          $.each(itemsMap, function(id) {
+            if (itemsMap[id].selected) result.push(id);
+          });
+          return result;
+        }
+      });
+  }
 
 })(jQuery);
