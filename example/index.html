@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilterSelect Demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; padding: 40px; background: #f5f5f5; }
+    h1 { margin-bottom: 20px; color: #333; }
+
+    .fs-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 16px;
+      max-width: 700px;
+    }
+
+    .fs-panel {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fs-title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .fs-search {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .fs-actions {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .fs-btn {
+      padding: 4px 8px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background: #fafafa;
+      cursor: pointer;
+    }
+    .fs-btn:hover { background: #eee; }
+
+    .fs-list {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      height: 260px;
+      overflow-y: auto;
+      padding: 4px;
+    }
+
+    .fs-group { margin-bottom: 2px; }
+
+    .fs-group-label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #555;
+      cursor: pointer;
+      padding: 4px 6px;
+      background: #f0f0f0;
+      border-radius: 3px;
+      user-select: none;
+    }
+    .fs-group-label:hover { background: #e5e5e5; }
+
+    .fs-arrow { font-size: 10px; }
+
+    .fs-group-checkbox {
+      cursor: pointer;
+      vertical-align: middle;
+      margin-right: 2px;
+    }
+
+    .fs-status-bar {
+      font-size: 12px;
+      color: #666;
+      text-align: right;
+      padding: 4px 8px;
+      border-top: 1px solid #ddd;
+      margin-top: 4px;
+    }
+
+    .fs-status-warning {
+      color: #e65100;
+      font-weight: bold;
+    }
+
+    .fs-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .fs-group-children { padding-left: 12px; }
+
+    .fs-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 4px;
+      font-size: 13px;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .fs-item:hover { background: #f0f7ff; }
+
+    .fs-item.fs-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .fs-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 120px;
+    }
+    .fs-controls .fs-btn {
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>FilterSelect Demo <small style="font-size:14px;color:#999;">v1.3.1</small></h1>
+  <div id="mySelector"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../dist/filterselect.min.js"></script>
+  <script>
+    var sampleData = [
+      {
+        group: "Fruits",
+        children: [
+          { id: "apple", label: "Apple", selected: false, disabled: false },
+          { id: "banana", label: "Banana", selected: true, disabled: false },
+          { id: "cherry", label: "Cherry", selected: false, disabled: false },
+          { id: "grape", label: "Grape", selected: false, disabled: true }
+        ]
+      },
+      {
+        group: "Vegetables",
+        children: [
+          { id: "carrot", label: "Carrot", selected: false, disabled: false },
+          { id: "broccoli", label: "Broccoli", selected: true, disabled: false },
+          { id: "spinach", label: "Spinach", selected: false, disabled: false }
+        ]
+      },
+      {
+        group: "Dairy",
+        children: [
+          { id: "milk", label: "Milk", selected: true, disabled: false },
+          { id: "cheese", label: "Cheese", selected: false, disabled: false },
+          { id: "yogurt", label: "Yogurt", selected: false, disabled: true }
+        ]
+      }
+    ];
+
+    $('#mySelector').filterSelect({
+      data: sampleData,
+      leftTitle: 'Available Items',
+      rightTitle: 'Selected Items',
+      maxSelected: 5
+    });
+  </script>
+</body>
+</html>
