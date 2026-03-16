@@ -2,6 +2,10 @@
 
 jQuery dual-list selector with tree groups, search, and configurable limits.
 
+## Example
+
+[Limit test and JSON data](./example/)
+
 ## Dependencies
 
 - [jQuery 3.x](https://jquery.com/)
