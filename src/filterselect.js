@@ -1,4 +1,4 @@
-// FilterSelect v1.5.1
+// FilterSelect v1.5.2
 (function($) {
   'use strict';
 
@@ -141,6 +141,7 @@
       }
 
       function renderBoth() {
+        $.each(itemsMap, function(_, item) { item.checked = false; });
         buildList($leftList, 'left');
         buildList($rightList, 'right');
         updateAllGroupCheckboxes();

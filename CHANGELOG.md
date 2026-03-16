@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.2
+
+- Fix: stale checked state in renderBoth() caused limit warning to persist after move-left, blocking subsequent move-right operations
+
 ## 1.5.1
 
 - Fix: `getSelectedIds()` now correctly returns item IDs instead of labels
